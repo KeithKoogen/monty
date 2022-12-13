@@ -39,7 +39,8 @@ int main(int argc, char *argv[])
 	while(fgets(buffer,sizeof buffer,fp)!= NULL)
 	{
 		
-      		printf("%s\n",buffer); 
+      		printf("%s\n",buffer);
+		memset(buffer, 0, sizeof(buffer));
 	}
 
 
