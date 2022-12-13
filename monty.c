@@ -5,23 +5,6 @@
 
 char buffer[1024];
 
-void function_selector(char *str)
-{
-	char *token, *line;
-	instruction_t functions[] = {
-	
-		{"push", push},
-		{"pall", pall},
-		{NULL, NULL}
-	};
-	
-	line = strtok(buffer, "\n");
-		      print("%s\n", line);
-	token = strtok(line, " ");
-		      print("%s\n", token);
-	
-}
-
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node, *tmp;
@@ -56,6 +39,23 @@ void pall(stack_t **stack, unsigned int line_number)
 		printf("%d\n", tmp->n);
 		tmp = tmp->next;
 	}
+}
+
+void function_selector(char *str)
+{
+	char *token, *line;
+	instruction_t functions[] = {
+	
+		{"push", push},
+		{"pall", pall},
+		{NULL, NULL}
+	};
+	
+	line = strtok(buffer, "\n");
+		      print("%s\n", line);
+	token = strtok(line, " ");
+		      printf("%s\n", token);
+	
 }
 
 int main(int argc, char *argv[])
