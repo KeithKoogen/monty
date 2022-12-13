@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 		fread(buffer, sizeof(buffer), 1, fp);
 		
 		sscanf(buffer, "%s %s", buffer2, buffer3);
-		print("buffer2:%s buffer3:%s \n", buffer2, buffer3);
+		printf("buffer2:%s buffer3:%s \n", buffer2, buffer3);
 
 	    }
 	fclose(fp);
