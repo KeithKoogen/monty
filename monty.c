@@ -3,12 +3,26 @@
 #include <string.h>
 #include <stdlib.h>
 
+void push(int n, stack_t **h)
+{
+	stack_t *new_node;
+
+	if (*h == NULL)
+	{
+		new_node = malloc(sizeof(stack_t));
+		new_node->n = n;
+		new_node->next = NULL;
+		new_node->prev = NULL;
+		*h = new_node;
+	}
+}
+
 int main(int argc, char *argv[])
 {
 	FILE *fp;
 	char buffer[1024];
 	instruction_t instructions[] = {
-		{"push", }
+		{"push", push}
 	};
 	
 	if (argc < 2 || argc > 2)
@@ -26,7 +40,19 @@ int main(int argc, char *argv[])
 	while (!feof(fp))
 	    {
 		fread(buffer, sizeof(buffer), 1, fp);
-		printf("%s\n",buffer);
+		
+		
+		
+		token = strtok(buffer, " ");
+	
+
+		
+		
+		
+		
+		
+		printf("buffer: %s\n",buffer);
+		printf("token: %s\n",token);
 	    }
 	fclose(fp);
 
