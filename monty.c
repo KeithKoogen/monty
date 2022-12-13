@@ -10,8 +10,8 @@ void function_selector(char *str)
 	char *token, *line;
 	instruction_t functions[] = {
 	
-		{"push", push()},
-		{"pall", pall()},
+		{"push", push},
+		{"pall", pall},
 		{NULL, NULL}
 	};
 	
