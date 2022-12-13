@@ -41,7 +41,7 @@ void pall(stack_t **stack, unsigned int line_number)
 	}
 }
 
-void function_selector(char *str, stack_t **stack;)
+void function_selector(char *str, stack_t **stack, unsigned int line_number)
 {
 	char *token;
 	int i;
@@ -75,6 +75,7 @@ int main(int argc, char *argv[])
 	stack_t **stack;
 	
 	*stack = NULL;
+	line_number = 1;
 	
 	if (argc < 2 || argc > 2)
 	{
@@ -100,7 +101,7 @@ int main(int argc, char *argv[])
 		memset(tmp, 0, sizeof(tmp));
 		strcpy(tmp, line);
 		printf("%s\n", tmp);
-		function_selector(line, stack);
+		function_selector(line, stack, line_number);
 		line = strtok(NULL, "\n");
 	}
 
