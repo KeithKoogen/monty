@@ -68,7 +68,7 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 	
 }
 
-void function_runner(char *str)
+void function_runner(char *str, stack_t **stack)
 {
 	char *token, tmp[1024];
 	unsigned int line_number;
@@ -117,7 +117,7 @@ int main(int argc, char *argv[])
 	printf("%s\n", buffer);
 	strcpy(tmp, buffer);
 	printf("%s\n", tmp);
-	function_runner(tmp);
+	function_runner(tmp, stack);
 
 
 
