@@ -94,8 +94,8 @@ int main(int argc, char *argv[])
 	printf("%s\n", buffer);
 		
 
-	strcpy(tmp_buf, buffer);
-	line = strtok(tmp_buf, "\n");
+	strcpy(tmp, buffer);
+// 	line = strtok(tmp_buf, "\n");
 		     
 // 	while (line != NULL)
 // 	{
