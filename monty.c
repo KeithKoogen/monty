@@ -3,6 +3,8 @@
 #include <string.h>
 #include <stdlib.h>
 
+char buffer[1024];
+
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node;
@@ -17,10 +19,15 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 }
 
+void printbuffer(char *buffer)
+{
+	printf("from buffer: %s\n", buffer);
+}
+
 int main(int argc, char *argv[])
 {
 	FILE *fp;
-	char buffer[1024];
+
 	char *token;
 	unsigned int line_number;
 	
@@ -37,14 +44,9 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	memset(buffer, 0, sizeof(buffer));
-	line_number = 1;
-	while(fgets(buffer,sizeof buffer,fp)!= NULL)
-	{
-		
-      		printf("%s\n",buffer);
-		memset(buffer, 0, sizeof(buffer));
-		++line_number;
-	}
+	fread(buffer, sizeof(buffer), 1, fp);
+	printbuffer(buffer);
+
 
 
 	fclose(fp);
