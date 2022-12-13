@@ -15,7 +15,7 @@ void function_selector(char *str)
 		{NULL, NULL}
 	};
 	
-	line = strtok(buffer, "\n);
+	line = strtok(buffer, "\n");
 		      print("%s\n", line);
 	token = strtok(line, " ");
 		      print("%s\n", token);
