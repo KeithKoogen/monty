@@ -84,7 +84,7 @@ void function_runner(char *str, stack_t **stack)
 		strcpy(tmp, token);
 		printf("%s\n", tmp);
 		function_selector(tmp, stack, line_number);
-		line = strtok(NULL, "\n");
+		token = strtok(NULL, "\n");
 	}
 }
 
