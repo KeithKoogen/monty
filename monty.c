@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-void push(int n, stack_t **h)
+void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node;
 
@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
 	FILE *fp;
 	char buffer[1024];
 	char *token;
+	unsigned int line_number;
 	
 	if (argc < 2 || argc > 2)
 	{
@@ -36,11 +37,13 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	memset(buffer, 0, sizeof(buffer));
+	line_number = 1;
 	while(fgets(buffer,sizeof buffer,fp)!= NULL)
 	{
 		
       		printf("%s\n",buffer);
 		memset(buffer, 0, sizeof(buffer));
+		++line_number;
 	}
 
 
