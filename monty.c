@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 {
 	FILE *fp;
 	char buffer[1024];
-	char *token;
+	char *token, buffer2[102], buffer3[102];
 	
 	if (argc < 2 || argc > 2)
 	{
@@ -39,15 +39,9 @@ int main(int argc, char *argv[])
 	    {
 		fread(buffer, sizeof(buffer), 1, fp);
 		
-		
-		
-		token = strtok(buffer, " ");
-	
-		printf("token: %s\n",token);
-		token = strtok(buffer, " ");
-	
-		printf("token: %s\n",token);
-		printf("token: %s\n",token);
+		sscanf(buffer, "%s %s", buffer2, buffer3);
+		print("buffer2:%s buffer3:%s \n", buffer2, buffer3);
+
 	    }
 	fclose(fp);
 
