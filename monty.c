@@ -41,6 +41,7 @@ void pall(stack_t **stack, unsigned int line_number)
 	}
 }
 
+
 void function_selector(char *str, stack_t **stack, unsigned int line_number)
 {
 	char *token;
@@ -65,6 +66,26 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 	}
 	
 	
+}
+
+void function_runner(char *str)
+{
+	char *token, tmp[1024];
+	unsigned int line_number;
+	
+	line_number = 1;
+	
+	token = strtok(str, "\n");
+
+		     
+	while (token != NULL)
+	{
+		memset(tmp, 0, sizeof(tmp));
+		strcpy(tmp, token);
+		printf("%s\n", tmp);
+		function_selector(tmp, stack, line_number);
+		line = strtok(NULL, "\n");
+	}
 }
 
 int main(int argc, char *argv[])
@@ -96,17 +117,8 @@ int main(int argc, char *argv[])
 	printf("%s\n", buffer);
 	strcpy(tmp, buffer);
 	printf("%s\n", tmp);
-	token = strtok(tmp, "\n");
+	function_runner(tmp);
 
-		     
-// 	while (line != NULL)
-// 	{
-// 		memset(tmp, 0, sizeof(tmp));
-// 		strcpy(tmp, line);
-// 		printf("%s\n", tmp);
-// 		function_selector(tmp, stack, line_number);
-// 		line = strtok(NULL, "\n");
-// 	}
 
 
 
