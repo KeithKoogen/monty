@@ -70,7 +70,7 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 int main(int argc, char *argv[])
 {
 	FILE *fp;
-	char *token, *tmp;
+	char *token, tmp[1024];
 	unsigned int line_number;
 	stack_t **stack;
 	
@@ -94,6 +94,8 @@ int main(int argc, char *argv[])
 	
 
 	printf("%s\n", buffer);
+	strcpy(tmp, buffer);
+	printf("%s\n", tmp);
 
 		     
 // 	while (line != NULL)
