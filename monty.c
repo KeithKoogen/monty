@@ -47,6 +47,7 @@ int main(int argc, char *argv[])
 		token = strtok(NULL, " ");
 	
 		printf("token: %s\n",token);
+		printf("token: %s\n",token);
 	    }
 	fclose(fp);
 
