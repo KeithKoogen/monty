@@ -20,7 +20,7 @@ void push(int n, stack_t **h)
 int main(int argc, char *argv[])
 {
 	FILE *fp;
-	char buffer[1024];
+	char buffer[1024], *str;
 	char *token, buffer2[102], buffer3[102];
 	
 	if (argc < 2 || argc > 2)
@@ -40,11 +40,16 @@ int main(int argc, char *argv[])
 		memset(buffer, 0, sizeof(buffer));
 		fread(buffer, sizeof(buffer), 1, fp);
 		
-		sscanf(buffer, "%s %s", buffer2, buffer3);
+		str = malloc(sizeof(buffer));
+		memset(str, 0, sizeof(str));
+		strcpy(str, buffer);
+		
+		sscanf(str, "%s %s", buffer2, buffer3);
 		printf("buffer2:%s buffer3:%s \n", buffer2, buffer3);
 		memset(buffer2, 0, sizeof(buffer2));
 		memset(buffer3, 0, sizeof(buffer3));
 		printf("%s\n", buffer);
+		free(str);
 
 	    }
 	fclose(fp);
