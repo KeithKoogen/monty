@@ -37,6 +37,7 @@ int main(int argc, char *argv[])
 	}
 	while (!feof(fp))
 	    {
+		memset(buffer, 0, sizeof(buffer));
 		fread(buffer, sizeof(buffer), 1, fp);
 		
 		sscanf(buffer, "%s %s", buffer2, buffer3);
