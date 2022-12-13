@@ -97,14 +97,14 @@ int main(int argc, char *argv[])
 	strcpy(tmp_buf, buffer);
 	line = strtok(tmp_buf, "\n");
 		     
-	while (line != NULL)
-	{
-		memset(tmp, 0, sizeof(tmp));
-		strcpy(tmp, line);
-		printf("%s\n", tmp);
-		function_selector(tmp, stack, line_number);
-		line = strtok(NULL, "\n");
-	}
+// 	while (line != NULL)
+// 	{
+// 		memset(tmp, 0, sizeof(tmp));
+// 		strcpy(tmp, line);
+// 		printf("%s\n", tmp);
+// 		function_selector(tmp, stack, line_number);
+// 		line = strtok(NULL, "\n");
+// 	}
 
 
 
