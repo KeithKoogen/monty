@@ -41,9 +41,10 @@ void pall(stack_t **stack, unsigned int line_number)
 	}
 }
 
-void function_selector(char *str)
+void function_selector(char *str, stack_t **stack;)
 {
-	char *token, *line, tmp[1024];
+	char *token;
+	int i;
 	instruction_t functions[] = {
 	
 		{"push", push},
@@ -51,17 +52,16 @@ void function_selector(char *str)
 		{NULL, NULL}
 	};
 	
-	line = strtok(buffer, "\n");
-		     
-	while (line != NULL)
+	token = strtok(str, " ");
+	i = 0;
+	while (functions[i].opcode != NULL)
 	{
-		memset(tmp, 0, sizeof(tmp));
-		strcpy(tmp, line);
-		printf("%s\n", tmp);
-		
-		token = strtok(tmp, " ");
-		printf("%s\n", token);
-		line = strtok(NULL, "\n");
+		if (strcmp(functions[i].opcode, token) == 0)
+		{
+			printf("this works\n");
+			break;
+		}
+		++i;
 	}
 	
 	
@@ -70,7 +70,7 @@ void function_selector(char *str)
 int main(int argc, char *argv[])
 {
 	FILE *fp;
-	char *token;
+	char *token, *line, tmp[1024], tmp_buf[1024];
 	unsigned int line_number;
 	stack_t **stack;
 	
@@ -90,8 +90,19 @@ int main(int argc, char *argv[])
 	}
 	memset(buffer, 0, sizeof(buffer));
 	fread(buffer, sizeof(buffer), 1, fp);
-	function_selector(buffer);
-	
+		
+	memset(tmp_buf, 0, sizeof(tmp_buf));
+	strcpy(tmp_buf, buffer);
+	line = strtok(tmp_buf, "\n");
+		     
+	while (line != NULL)
+	{
+		memset(tmp, 0, sizeof(tmp));
+		strcpy(tmp, line);
+		printf("%s\n", tmp);
+		function_selector(line, stack);
+		line = strtok(NULL, "\n");
+	}
 
 
 
