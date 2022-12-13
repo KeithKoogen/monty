@@ -43,7 +43,7 @@ void pall(stack_t **stack, unsigned int line_number)
 
 void function_selector(char *str)
 {
-	char *token, *line;
+	char *token, *line, tmp[1024];
 	instruction_t functions[] = {
 	
 		{"push", push},
@@ -55,7 +55,10 @@ void function_selector(char *str)
 		     
 	while (line != NULL)
 	{
-		printf("%s\n", line);
+		memset(tmp, 0, sizeof(tmp));
+		strcpy(tmp, line);
+		printf("%s\n", tmp);
+		
 		
 		line = strtok(NULL, "\n");
 	}
