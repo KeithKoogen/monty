@@ -41,6 +41,8 @@ int main(int argc, char *argv[])
 		
 		sscanf(buffer, "%s %s", buffer2, buffer3);
 		printf("buffer2:%s buffer3:%s \n", buffer2, buffer3);
+		memset(buffer2, 0, sizeof(buffer2));
+		memset(buffer3, 0, sizeof(buffer3));
 		printf("%s\n", buffer);
 
 	    }
