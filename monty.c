@@ -96,6 +96,7 @@ int main(int argc, char *argv[])
 	printf("%s\n", buffer);
 	strcpy(tmp, buffer);
 	printf("%s\n", tmp);
+	token = strtok(tmp, "\n");
 
 		     
 // 	while (line != NULL)
