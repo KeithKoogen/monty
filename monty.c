@@ -35,23 +35,22 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (!feof(fp))
-	    {
-		memset(buffer, 0, sizeof(buffer));
-		fread(buffer, sizeof(buffer), 1, fp);
-		
-		str = malloc(sizeof(buffer));
-		memset(str, 0, sizeof(str));
-		strcpy(str, buffer);
-		
-		sscanf(str, "%s %s", buffer2, buffer3);
-		printf("buffer2:%s buffer3:%s \n", buffer2, buffer3);
-		memset(buffer2, 0, sizeof(buffer2));
-		memset(buffer3, 0, sizeof(buffer3));
-		printf("%s\n", buffer);
-		free(str);
 
-	    }
+	memset(buffer, 0, sizeof(buffer));
+	fread(buffer, sizeof(buffer), 1, fp);
+		
+	str = malloc(sizeof(buffer));
+	memset(str, 0, sizeof(str));
+	strcpy(str, buffer);
+		
+	sscanf(str, "%s %s", buffer2, buffer3);
+	printf("buffer2:%s buffer3:%s \n", buffer2, buffer3);
+	memset(buffer2, 0, sizeof(buffer2));
+	memset(buffer3, 0, sizeof(buffer3));
+	printf("%s\n", buffer);
+	free(str);
+
+
 	fclose(fp);
 
 }
