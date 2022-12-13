@@ -52,7 +52,7 @@ void function_selector(char *str)
 	};
 	
 	line = strtok(buffer, "\n");
-		      print("%s\n", line);
+		      printf("%s\n", line);
 	token = strtok(line, " ");
 		      printf("%s\n", token);
 	
