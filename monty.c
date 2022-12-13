@@ -9,13 +9,13 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node;
 
-	if (*h == NULL)
+	if (*stack == NULL)
 	{
 		new_node = malloc(sizeof(stack_t));
 		new_node->n = n;
 		new_node->next = NULL;
 		new_node->prev = NULL;
-		*h = new_node;
+		*stack = new_node;
 	}
 }
 
