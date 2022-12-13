@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 		token = strtok(buffer, " ");
 	
 		printf("token: %s\n",token);
-		token = strtok(NULL, " ");
+		token = strtok(buffer, " ");
 	
 		printf("token: %s\n",token);
 		printf("token: %s\n",token);
