@@ -7,6 +7,9 @@ int main(int argc, char *argv[])
 {
 	FILE *fp;
 	char buffer[1024];
+	instruction_t instructions[] = {
+		{"push", }
+	};
 	
 	if (argc < 2 || argc > 2)
 	{
