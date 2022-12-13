@@ -55,14 +55,14 @@ void function_selector(char *str)
 		     
 	while (line != NULL)
 	{
-		 printf("%s\n", line);
-		line = strtok(NULL, "\n");
+		printf("%s\n", line);
 		token = strtok(line, " ");
 		if (token != NULL)
 			printf("%s\n", token);
 		token = strtok(NULL, " ");
 		if (token != NULL)
 			printf("%s\n", token);
+		line = strtok(NULL, "\n");
 	}
 	
 	
