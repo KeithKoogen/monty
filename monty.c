@@ -91,12 +91,9 @@ int main(int argc, char *argv[])
 	}
 	memset(buffer, 0, sizeof(buffer));
 	fread(buffer, sizeof(buffer), 1, fp);
-	tmp = malloc(sizeof(buffer));
-	memset(tmp, 0, sizeof(tmp));
-		
+	
 
-	strcpy(tmp, buffer);
-	token = strtok(tmp, "\n");
+	token = strtok(buffer, "\n");
 
 		     
 // 	while (line != NULL)
