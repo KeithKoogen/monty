@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
 	fread(buffer, sizeof(buffer), 1, fp);
 	printf("%s\n", buffer);
 		
-	memset(tmp_buf, 0, sizeof(tmp_buf));
+
 	strcpy(tmp_buf, buffer);
 	line = strtok(tmp_buf, "\n");
 		     
