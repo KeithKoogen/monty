@@ -6,6 +6,7 @@
 int main(int argc, char *argv[])
 {
 	FILE *fp;
+	char buffer[1024];
 	
 	if (argc < 2 || argc > 2)
 	{
@@ -19,7 +20,11 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	
+	while (!feof(fp))
+	    {
+		fread(buffer, sizeof(buffer), 1, fp);
+		printf("%s\n",buffer);
+	    }
 	fclose(fp);
 
 }
