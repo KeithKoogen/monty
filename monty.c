@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
 	fread(buffer, sizeof(buffer), 1, fp);
 	
 
-	token = strtok(buffer, "\n");
+	printf("%s\n", buffer);
 
 		     
 // 	while (line != NULL)
