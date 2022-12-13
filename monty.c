@@ -20,8 +20,8 @@ void push(int n, stack_t **h)
 int main(int argc, char *argv[])
 {
 	FILE *fp;
-	char buffer[1024], *str;
-	char *token, buffer2[102], buffer3[102];
+	char buffer[1024];
+	char *token;
 	
 	if (argc < 2 || argc > 2)
 	{
@@ -35,20 +35,12 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-
 	memset(buffer, 0, sizeof(buffer));
-	fread(buffer, sizeof(buffer), 1, fp);
+	while(fgets(buffer,sizeof buffer,fp)!= NULL)
+	{
 		
-	str = malloc(sizeof(buffer));
-	memset(str, 0, sizeof(str));
-	strcpy(str, buffer);
-		
-	sscanf(str, "%s %s", buffer2, buffer3);
-	printf("buffer2:%s buffer3:%s \n", buffer2, buffer3);
-	memset(buffer2, 0, sizeof(buffer2));
-	memset(buffer3, 0, sizeof(buffer3));
-	printf("%s\n", buffer);
-	free(str);
+      		printf("%s\n",buffer); 
+	}
 
 
 	fclose(fp);
