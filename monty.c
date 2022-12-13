@@ -70,7 +70,7 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 int main(int argc, char *argv[])
 {
 	FILE *fp;
-	char *token, tmp[1024], tmp_buf[1024];
+	char *token, tmp[1024];
 	unsigned int line_number;
 	stack_t **stack;
 	
@@ -91,12 +91,11 @@ int main(int argc, char *argv[])
 	}
 	memset(buffer, 0, sizeof(buffer));
 	fread(buffer, sizeof(buffer), 1, fp);
-	printf("%s\n", buffer);
 		
 
 	strcpy(tmp, buffer);
-// 	token = strtok(tmp, "\n");
-	printf("%s\n", tmp);
+	token = strtok(tmp, "\n");
+
 		     
 // 	while (line != NULL)
 // 	{
