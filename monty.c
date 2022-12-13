@@ -70,7 +70,7 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 int main(int argc, char *argv[])
 {
 	FILE *fp;
-	char *token, tmp;
+	char *token, *tmp;
 	unsigned int line_number;
 	stack_t **stack;
 	
