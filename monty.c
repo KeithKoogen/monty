@@ -51,7 +51,7 @@ void function_selector(char *str)
 		{NULL, NULL}
 	};
 	
-	line = strtok(buffer, "\n", " ");
+	line = strtok(buffer, " \n ");
 		     
 	while (line != NULL)
 	{
@@ -61,7 +61,7 @@ void function_selector(char *str)
 		
 		token = strtok(tmp, " ");
 		printf("%s\n", token);
-		line = strtok(NULL, "\n", " ");
+		line = strtok(NULL, " \n ");
 	}
 	
 	
