@@ -54,15 +54,15 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 	
 	token = strtok(str, " ");
 	i = 0;
-// 	while (functions[i].opcode != NULL)
-// 	{
-// 		if (strcmp(functions[i].opcode, token) == 0)
-// 		{
-// 			printf("this works\n");
-// 			break;
-// 		}
-// 		++i;
-// 	}
+	while (functions[i].opcode != NULL)
+	{
+		if (strcmp(functions[i].opcode, token) == 0)
+		{
+			printf("this works\n");
+			break;
+		}
+		++i;
+	}
 	
 	
 }
@@ -91,6 +91,7 @@ int main(int argc, char *argv[])
 	}
 	memset(buffer, 0, sizeof(buffer));
 	fread(buffer, sizeof(buffer), 1, fp);
+	printf("%s\n", buffer);
 		
 	memset(tmp_buf, 0, sizeof(tmp_buf));
 	strcpy(tmp_buf, buffer);
