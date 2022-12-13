@@ -70,7 +70,7 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 int main(int argc, char *argv[])
 {
 	FILE *fp;
-	char *token, tmp[1024];
+	char *token, tmp;
 	unsigned int line_number;
 	stack_t **stack;
 	
@@ -91,6 +91,8 @@ int main(int argc, char *argv[])
 	}
 	memset(buffer, 0, sizeof(buffer));
 	fread(buffer, sizeof(buffer), 1, fp);
+	tmp = malloc(sizeof(buffer));
+	memset(tmp, 0, sizeof(tmp));
 		
 
 	strcpy(tmp, buffer);
