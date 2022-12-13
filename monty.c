@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[])
 {
-	if (argc < 3 || argc > 3)
+	if (argc < 2 || argc > 2)
 	{
 		printf("%d\n", argc);
 		perror("USAGE: monty file\n");
