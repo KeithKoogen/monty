@@ -105,8 +105,10 @@ int main(int argc, char *argv[])
 		tmp = malloc(sizeof(char) * (i - 1));
 		i = 0;
 		while (buffer[i] != '\n')
+		{
 			tmp[i] = buffer[i];
-		strcpy(tmp, buffer);
+			++i;
+		}
 		function_selector(tmp, stack, line_number);
 		free(tmp);
       		++line_number;
