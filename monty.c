@@ -128,6 +128,7 @@ int main(int argc, char *argv[])
 
 	
 	stack = NULL;
+	*stack = NULL;
 	line_number = 1;
 	
 	if (argc < 2 || argc > 2)
