@@ -111,14 +111,14 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 int main(int argc, char *argv[])
 {
 	FILE *fp;
-	char *token, *tmp;
+	char *tmp;
 	unsigned int line_number, i;
 	stack_t **stack;
 	
 	tmp = NULL;
 
 	
-	*stack = NULL;
+	stack = NULL;
 	line_number = 1;
 	
 	if (argc < 2 || argc > 2)
@@ -158,5 +158,6 @@ int main(int argc, char *argv[])
 
 
 	fclose(fp);
+	return (0);
 
 }
