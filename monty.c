@@ -124,7 +124,7 @@ int main(int argc, char *argv[])
 	
 	tmp = NULL;
 
-	stack = NULL;
+	stack = malloc(sizeof(stack_t));
 	*stack = NULL;
 	line_number = 1;
 	
