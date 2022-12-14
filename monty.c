@@ -339,6 +339,11 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 
 		++i;
 	}
+	if(token[0] == '#')
+	{
+		k = 1;
+	}
+	
 	if (k == 0)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, token);
