@@ -60,8 +60,10 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 		if (strcmp(functions[i].opcode, token) == 0)
 		{
 			if (strcmp(token, "push") == 0)
+			{
 				token = strtok(NULL, " ");
-			printf("number: %s\n", token);
+				printf("number: %s\n", token);
+			}
 	
 			functions[i].f(stack, line_number);
 			break;
