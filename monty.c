@@ -16,6 +16,7 @@ int numbers_only(char *str)
 	{
 		if (str[i] < 48 || str[i] > 57)
 			j = 1;
+		++i;
 	}
 	return (j);
 }
