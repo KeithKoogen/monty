@@ -54,12 +54,13 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 	};
 	
 	token = strtok(str, " ");
+	printf("this works opcode:%s \n", token);
 	i = 0;
 	while (functions[i].opcode != NULL)
 	{
 		if (strcmp(functions[i].opcode, token) == 0)
 		{
-			printf("this works opcode:%s \n", token);
+			
 			
 			break;
 		}
