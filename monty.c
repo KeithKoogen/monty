@@ -166,7 +166,7 @@ void add(stack_t **stack, unsigned int line_number)
 	}
 }
 
-void div(stack_t **stack, unsigned int line_number)
+void divide(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp, *tmp2;
 	int total;
@@ -215,6 +215,7 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 		{"swap", swap},
 		{"add", add},
 		{"nop", NULL},
+		{"div", divide},
 		{NULL, NULL}
 	};
 	
