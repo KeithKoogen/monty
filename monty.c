@@ -201,6 +201,7 @@ int main(int argc, char *argv[])
 			tmp[i] = buffer[i];
 			++i;
 		}
+		print("the line: %s", tmp);
 		function_selector(tmp, stack, line_number);
 		free(tmp);
       		++line_number;
