@@ -96,11 +96,16 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 				}
 				else
 				{
-					printf("L%d: usage: push integer\n", line_number);
+					fprintf(stderr, "L%d: usage: push integer\n", line_number);
 					exit(EXIT_FAILURE);
 				}
 			}
 			break;
+		}
+		else
+		{
+			fprintf(stderr, "L%d: unknown instruction %s", line_number, token);
+			exit(EXIT_FAILURE);
 		}
 		++i;
 	}
