@@ -343,14 +343,14 @@ void rotl(stack_t **stack, unsigned int line_number)
 	tmp = *stack;
 	tmp2 = tmp->next;
 	
-	while (tmp->next != NULL)
+	while (tmp != NULL)
 	{
 
 		tmp = tmp->next;
 
 	}
-	tmp->next->next = *stack;
-	tmp->next->next = NULL;
+	tmp = *stack;
+	tmp->next = NULL;
 	tmp2->prev = NULL;
 	*stack = tmp2;
 
