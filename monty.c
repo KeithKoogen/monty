@@ -34,7 +34,6 @@ void push(stack_t **stack, unsigned int line_number)
 		new_node = malloc(sizeof(stack_t));
 		new_node->next = NULL;
 		new_node->prev = NULL;
-
 		*stack = new_node;
 	}
 	else
@@ -42,7 +41,6 @@ void push(stack_t **stack, unsigned int line_number)
 		new_node = malloc(sizeof(stack_t));
 		new_node->next = *stack;
 		new_node->prev = NULL;
-
 		tmp->prev = new_node;
 		*stack = new_node;
 	}
