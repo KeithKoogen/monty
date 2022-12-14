@@ -98,8 +98,7 @@ int main(int argc, char *argv[])
 	while(fgets(buffer,sizeof(buffer),fp)!= NULL)
 	{
 		function_selector(buffer, stack, line_number);
-      	printf("%s",buffer);
-		++line_number;
+      		++line_number;
     	}
 
 	
