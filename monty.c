@@ -3,7 +3,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-char buffer[1024];
 
 int numbers_only(char *str)
 {
@@ -169,8 +168,10 @@ int main(int argc, char *argv[])
 	char *tmp;
 	unsigned int line_number, i;
 	stack_t **stack;
+	char buffer[1024];
 	
 	tmp = NULL;
+	memset(buffer, 0, sizeof(buffer));
 
 	stack = malloc(sizeof(stack_t));
 	*stack = NULL;
