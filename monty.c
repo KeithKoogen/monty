@@ -311,6 +311,26 @@ void pchar(stack_t **stack, unsigned int line_number)
 	}
 }
 
+void pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp;
+	
+	tmp = *stack;
+	
+	while (tmp != NULL)
+	{
+		if (tmp->n <= 0 || tmp->n > 127)
+		{
+			break;
+		}
+		printf("%c", tmp->n);
+		tmp = tmp->next;
+
+	}
+	printf("\n");
+
+}
+
 void function_selector(char *str, stack_t **stack, unsigned int line_number)
 {
 	char *token;
@@ -330,6 +350,7 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 		{"mul", mul},
 		{"mod", mod},
 		{"pchar", pchar},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 	
