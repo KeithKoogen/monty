@@ -202,6 +202,7 @@ int main(int argc, char *argv[])
 			tmp[i] = buffer[i];
 			++i;
 		}
+		tmp[i] = '\0';
 		printf("the line: %s\n", tmp);
 		function_selector(tmp, stack, line_number);
 		free(tmp);
