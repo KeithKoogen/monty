@@ -115,7 +115,8 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	
-	while ((nread = getline(&buffer, &len, fp)) != -1) {
+	while ((nread = getline(&line, &len, fp)) != -1) {
+		strcpy(buffer, line);
            printf("Retrieved line number %s:\n", buffer);
  
        }
