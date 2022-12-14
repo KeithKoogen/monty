@@ -3,6 +3,16 @@
 #include <string.h>
 #include <stdlib.h>
 
+void free_stack(stack_t *head)
+{
+	if (head == NULL)
+	{
+		return;
+	}
+	free_stack(head->next);
+	free(head);
+}
+
 
 int numbers_only(char *str)
 {
@@ -33,6 +43,8 @@ void pint(stack_t **stack, unsigned int line_number)
 	else
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty", line_number);
+			free_stack(*stack);
+			free(stack);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -61,15 +73,7 @@ void push(stack_t **stack, unsigned int line_number)
 		*stack = new_node;
 	}
 }
-void free_stack(stack_t *head)
-{
-	if (head == NULL)
-	{
-		return;
-	}
-	free_stack(head->next);
-	free(head);
-}
+
 
 void pall(stack_t **stack, unsigned int line_number)
 {
@@ -107,6 +111,8 @@ void pop(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
+		free_stack(*stack);
+		free(stack);
 		fprintf(stderr, "L%d: can't pop an empty stack", line_number);
 		exit(EXIT_FAILURE);
 	}
@@ -130,6 +136,8 @@ void swap(stack_t **stack, unsigned int line_number)
 	else
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short", line_number);
+		free_stack(*stack);
+		free(stack);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -152,6 +160,8 @@ void add(stack_t **stack, unsigned int line_number)
 	else
 	{
 		fprintf(stderr, "L%d: can't add, stack too short", line_number);
+		free_stack(*stack);
+		free(stack);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -200,6 +210,8 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 				else
 				{
 					fprintf(stderr, "L%d: usage: push integer\n", line_number);
+					free_stack(*stack);
+					free(stack);
 					exit(EXIT_FAILURE);
 				}
 			}
@@ -211,6 +223,8 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 	if (k == 0)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, token);
+		free_stack(*stack);
+		free(stack);
 		exit(EXIT_FAILURE);
 	}
 	
