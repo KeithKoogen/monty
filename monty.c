@@ -75,9 +75,11 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 int main(int argc, char *argv[])
 {
 	FILE *fp;
-	char *token, tmp[1024];
+	char *token, *tmp;
 	unsigned int line_number;
 	stack_t **stack;
+	
+	tmp = NULL;
 
 	
 	*stack = NULL;
@@ -98,7 +100,10 @@ int main(int argc, char *argv[])
 	
 	while(fgets(buffer,sizeof(buffer),fp)!= NULL)
 	{
-		function_selector(buffer, stack, line_number);
+		tmp = malloc(sizeof(char) * (strlen(buffer) - 1));
+		strcpy(tmp, buffer);
+		function_selector(tmp, stack, line_number);
+		free(tmp);
       		++line_number;
     	}
 
