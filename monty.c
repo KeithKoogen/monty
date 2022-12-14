@@ -342,19 +342,21 @@ void rotl(stack_t **stack, unsigned int line_number)
 	
 	tmp = *stack;
 	tmp2 = tmp->next;
-	
-	while (tmp->next != NULL)
+	if (tmp != NULL && tmp2 != NULL)
 	{
+	
+		while (tmp->next != NULL)
+		{
 
-		tmp = tmp->next;
+			tmp = tmp->next;
 
+		}
+		tmp->next = *stack;
+		tmp->next->prev = tmp;
+		tmp->next->next = NULL;
+		tmp2->prev = NULL;
+		*stack = tmp2;
 	}
-	tmp->next = *stack;
-	tmp->next->prev = tmp;
-	tmp->next->next = NULL;
-	tmp2->prev = NULL;
-	*stack = tmp2;
-
 }
 
 void function_selector(char *str, stack_t **stack, unsigned int line_number)
