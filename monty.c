@@ -183,8 +183,10 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 		if (strcmp(functions[i].opcode, token) == 0)
 		{
 			k = 1;
-
-			functions[i].f(stack, line_number);
+			
+			if (strcmp("nop", token) != 0)
+				functions[i].f(stack, line_number);
+			
 			if (strcmp(token, "push") == 0)
 			{
 				token = strtok(NULL, " ");
