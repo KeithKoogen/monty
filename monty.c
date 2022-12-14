@@ -51,7 +51,7 @@ void free_stack(stack_t *head)
 	{
 		return;
 	}
-	free_dlistint(head->next);
+	free_stack(head->next);
 	free(head);
 }
 
