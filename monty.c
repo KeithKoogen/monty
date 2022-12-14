@@ -114,7 +114,7 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	memset(buffer, 0, sizeof(buffer));
+	
 	while ((nread = getline(&line, &len, fp)) != -1) {
            printf("Retrieved line number %s:\n", line);
  
