@@ -92,10 +92,18 @@ void pop(stack_t **stack, unsigned int line_number)
 	tmp = *stack;
 	if (tmp != NULL)
 	{	
-		*stack = tmp->next;
-		tmp2 = *stack;
-		tmp2->prev = NULL;
-		free(tmp);
+		if (tmp->next != NULL)
+		{
+			*stack = tmp->next;
+			tmp2 = *stack;
+			tmp2->prev = NULL;
+			free(tmp);
+		}
+		else
+		{
+			*stack = NUll;
+			free(tmp);
+		}
 	}
 	else
 	{
@@ -203,7 +211,6 @@ int main(int argc, char *argv[])
 			++i;
 		}
 		tmp[i] = '\0';
-		printf("the line: %s\n", tmp);
 		function_selector(tmp, stack, line_number);
 		free(tmp);
       		++line_number;
