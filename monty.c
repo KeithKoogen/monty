@@ -282,6 +282,35 @@ void mod(stack_t **stack, unsigned int line_number)
 	}
 }
 
+void pchar(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp;
+	
+	tmp = *stack;
+	
+	if (tmp != NULL)
+	{
+		if (tmp->n >= 0 && tmp->n <= 127)
+		{
+			printf("%c\n", tmp->n);
+		}
+		else
+		{
+			fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number, token);
+			free_stack(*stack);
+			free(stack);
+			exit(EXIT_FAILURE);			
+		}
+	}
+	else
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+			free_stack(*stack);
+			free(stack);
+		exit(EXIT_FAILURE);
+	}
+}
+
 void function_selector(char *str, stack_t **stack, unsigned int line_number)
 {
 	char *token;
@@ -353,35 +382,6 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	
-}
-
-void pchar(stack_t **stack, unsigned int line_number)
-{
-	stack_t *tmp;
-	
-	tmp = *stack;
-	
-	if (tmp != NULL)
-	{
-		if (tmp->n >= 0 && tmp->n <= 127)
-		{
-			printf("%c\n", tmp->n);
-		}
-		else
-		{
-			fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number, token);
-			free_stack(*stack);
-			free(stack);
-			exit(EXIT_FAILURE);			
-		}
-	}
-	else
-	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
-			free_stack(*stack);
-			free(stack);
-		exit(EXIT_FAILURE);
-	}
 }
 
 
