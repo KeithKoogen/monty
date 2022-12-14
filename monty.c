@@ -248,6 +248,39 @@ void divide(stack_t **stack, unsigned int line_number)
 	}
 }
 
+void mod(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp, *tmp2;
+	int total;
+	
+	tmp = *stack;
+	tmp2 = tmp->next;
+	if (tmp2 != NULL)
+	{
+		if (tmp->n != 0)
+		{
+			total = tmp2->n % tmp->n;
+			tmp2->n = total;
+			tmp2->prev = NULL;
+			free(tmp);
+			*stack = tmp2;
+		}
+		else
+		{
+			fprintf(stderr, "L%d: division by zero\n", line_number);
+			free_stack(*stack);
+			free(stack);
+			exit(EXIT_FAILURE);
+		}
+	}
+	else
+	{
+		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
+		free_stack(*stack);
+		free(stack);
+		exit(EXIT_FAILURE);
+	}
+}
 
 void function_selector(char *str, stack_t **stack, unsigned int line_number)
 {
@@ -266,6 +299,7 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 		{"div", divide},
 		{"sub", sub},
 		{"mul", mul},
+		{"mod", mod},
 		{NULL, NULL}
 	};
 	
