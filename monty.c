@@ -290,7 +290,7 @@ void pchar(stack_t **stack, unsigned int line_number)
 	
 	if (tmp != NULL)
 	{
-		if ((tmp->n + 1)> 0 && tmp->n < 128)
+		if (tmp->n > 0 && tmp->n < 128)
 		{
 			printf("%c\n", tmp->n);
 		}
