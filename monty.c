@@ -134,6 +134,28 @@ void swap(stack_t **stack, unsigned int line_number)
 	}
 }
 
+void add(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp, *tmp2;
+	int total;
+	
+	tmp = *stack;
+	tmp2 = tmp->next;
+	if (tmp2 != NULL)
+	{
+		total = tmp->n + tmp2->n;
+		tmp2->n = total;
+		tmp2->prev = NULL;
+		free(tmp);
+		*stack = tmp2;
+	}
+	else
+	{
+		fprintf(stderr, "L%d: can't add, stack too short", line_number);
+		exit(EXIT_FAILURE);
+	}
+}
+
 
 void function_selector(char *str, stack_t **stack, unsigned int line_number)
 {
@@ -147,6 +169,7 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
+		{"add", add},
 		{NULL, NULL}
 	};
 	
