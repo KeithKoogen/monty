@@ -116,7 +116,7 @@ int main(int argc, char *argv[])
 	}
 	memset(buffer, 0, sizeof(buffer));
 	while ((nread = getline(&line, &len, fp)) != -1) {
-           printf("Retrieved line number %d:\n", line);
+           printf("Retrieved line number %s:\n", line);
  
        }
 	
