@@ -86,6 +86,26 @@ void pall(stack_t **stack, unsigned int line_number)
 	}
 }
 
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp, *tmp2;
+	
+	tmp = *stack;
+	if (tmp != NULL)
+	{	
+		*stack = tmp->next;
+		tmp2 = *stack;
+		tmp2->prev = NULL;
+		free(tmp);
+	}
+	else
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack", line_number);
+		exit(EXIT_FAILURE);
+	}
+	
+}
+
 
 void function_selector(char *str, stack_t **stack, unsigned int line_number)
 {
