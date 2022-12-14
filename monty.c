@@ -101,7 +101,7 @@ void pop(stack_t **stack, unsigned int line_number)
 		}
 		else
 		{
-			*stack = NUll;
+			*stack = NULL;
 			free(tmp);
 		}
 	}
