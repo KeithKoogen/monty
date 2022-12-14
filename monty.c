@@ -45,6 +45,15 @@ void push(stack_t **stack, unsigned int line_number)
 		*stack = new_node;
 	}
 }
+void free_stack(stack_t *head)
+{
+	if (head == NULL)
+	{
+		return;
+	}
+	free_dlistint(head->next);
+	free(head);
+}
 
 void pall(stack_t **stack, unsigned int line_number)
 {
@@ -165,6 +174,8 @@ int main(int argc, char *argv[])
 
 
 	fclose(fp);
+	free_stack(*stack);
+	free(stack);
 	return (0);
 
 }
