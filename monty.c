@@ -14,6 +14,7 @@ void push(stack_t **stack, unsigned int line_number)
 	printf("buffer here: %s", buffer);
 	token = (buffer, " ");
 	token = (NULL, " ");
+	printf("token here: %s", token);
 	n = atoi(token);
 	
 	tmp = *stack;
