@@ -35,6 +35,7 @@ void push(stack_t **stack, unsigned int line_number)
 		new_node->next = NULL;
 		new_node->prev = NULL;
 		*stack = new_node;
+		printf("First Node Added");
 	}
 	else
 	{
@@ -43,6 +44,7 @@ void push(stack_t **stack, unsigned int line_number)
 		new_node->prev = NULL;
 		tmp->prev = new_node;
 		*stack = new_node;
+		printf("More Nodes Added");
 	}
 }
 
