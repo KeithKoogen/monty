@@ -51,6 +51,7 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 {
 	char *token;
 	int i, n;
+	stack_t *tmp;
 	instruction_t functions[] = {
 	
 		{"push", push},
@@ -60,6 +61,7 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 	
 	token = strtok(str, " ");
 	i = 0;
+	n = 0;
 	while (functions[i].opcode != NULL)
 	{
 		if (strcmp(functions[i].opcode, token) == 0)
@@ -70,7 +72,8 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 			{
 				token = strtok(NULL, " ");
 				n = atoi(token);
-				*stack->n = n;
+				tmp = *stack;
+				tmp->n = n;
 			}
 			break;
 		}
