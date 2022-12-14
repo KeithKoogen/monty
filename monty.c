@@ -377,7 +377,7 @@ void rotr(stack_t **stack, unsigned int line_number)
 			tmp = tmp->next;
 
 		}
-		tmp->prev->next = NULL;
+		tmp->next = NULL;
 		tmp2->prev = tmp;
 		tmp->next = tmp2;
 		tmp->prev = NULL;
