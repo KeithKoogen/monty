@@ -69,25 +69,7 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 	
 }
 
-void function_runner(char *str, stack_t **stack)
-{
-	char *token, tmp[1024];
-	unsigned int line_number;
-	
-	line_number = 1;
-	
-	token = strtok(str, "\n");
 
-		     
-	while (token != NULL)
-	{
-		memset(tmp, 0, sizeof(tmp));
-		strcpy(tmp, token);
-		printf("%s\n", tmp);
-		function_selector(tmp, stack, line_number);
-		token = strtok(NULL, "\n");
-	}
-}
 
 int main(int argc, char *argv[])
 {
@@ -95,9 +77,7 @@ int main(int argc, char *argv[])
 	char *token, tmp[1024];
 	unsigned int line_number;
 	stack_t **stack;
-	ssize_t nread;
-	char *line = NULL;
-        size_t len = 0;
+
 	
 	*stack = NULL;
 	line_number = 1;
@@ -115,9 +95,12 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	
-	while(fgets(buffer,sizeof(buffer),fp)!= NULL) /* read a line from a file */ {
-      printf("%s",buffer); //print the file contents on stdout.
-    }
+	while(fgets(buffer,sizeof(buffer),fp)!= NULL)
+	{
+		function_selector(buffer, stack, line_number)
+      	printf("%s",buffer);
+		++line_number;
+    	}
 
 	
 
