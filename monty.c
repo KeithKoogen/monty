@@ -5,16 +5,13 @@
 
 char buffer[1024];
 
+
+
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node, *tmp;
-	int n;
-	char *token;
 	
-	token = (NULL, " ");
-	printf("token here: %s\n", token);
-	n = atoi(token);
-	
+
 	tmp = *stack;
 	
 	if (tmp == NULL)
@@ -53,7 +50,7 @@ void pall(stack_t **stack, unsigned int line_number)
 void function_selector(char *str, stack_t **stack, unsigned int line_number)
 {
 	char *token;
-	int i;
+	int i, n;
 	instruction_t functions[] = {
 	
 		{"push", push},
@@ -69,6 +66,12 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 		{
 
 			functions[i].f(stack, line_number);
+			if (strcmp(token, "push") == 0)
+			{
+				token = strtok(NULL, " ");
+				n = atoi(token);
+				*stack->n = n;
+			}
 			break;
 		}
 		++i;
