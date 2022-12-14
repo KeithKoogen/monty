@@ -66,7 +66,7 @@ void pall(stack_t **stack, unsigned int line_number)
 void function_selector(char *str, stack_t **stack, unsigned int line_number)
 {
 	char *token;
-	int i, n, j;
+	int i, n, j, k;
 	stack_t *tmp;
 	instruction_t functions[] = {
 	
@@ -77,11 +77,13 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 	
 	token = strtok(str, " ");
 	i = 0;
+	k = 0;
 	
 	while (functions[i].opcode != NULL)
 	{
 		if (strcmp(functions[i].opcode, token) == 0)
 		{
+			k = 1;
 
 			functions[i].f(stack, line_number);
 			if (strcmp(token, "push") == 0)
@@ -102,14 +104,14 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 			}
 			break;
 		}
-		else
-		{
-			fprintf(stderr, "L%d: unknown instruction %s", line_number, token);
-			exit(EXIT_FAILURE);
-		}
+
 		++i;
 	}
-	
+	if (k == 0)
+	{
+		fprintf(stderr, "L%d: unknown instruction %s", line_number, token);
+		exit(EXIT_FAILURE);
+	}
 	
 }
 
