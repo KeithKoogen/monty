@@ -5,7 +5,20 @@
 
 char buffer[1024];
 
-
+int numbers_only(char *str)
+{
+	int i, j;
+	
+	j = 0;
+	i = 0;
+	
+	while(str[i] != '\0')
+	{
+		if (str[i] < 48 || str[i] > 57)
+			j = 1;
+	}
+	return (j);
+}
 
 void push(stack_t **stack, unsigned int line_number)
 {
@@ -50,7 +63,7 @@ void pall(stack_t **stack, unsigned int line_number)
 void function_selector(char *str, stack_t **stack, unsigned int line_number)
 {
 	char *token;
-	int i, n;
+	int i, n, j;
 	stack_t *tmp;
 	instruction_t functions[] = {
 	
@@ -71,9 +84,18 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 			if (strcmp(token, "push") == 0)
 			{
 				token = strtok(NULL, " ");
-				n = atoi(token);
-				tmp = *stack;
-				tmp->n = n;
+				j = numbers_only(token);
+				if (j == 0)
+				{
+					n = atoi(token);
+					tmp = *stack;
+					tmp->n = n;
+				}
+				else
+				{
+					printf("L%line_number: usage: push integer");
+					exit(EXIT_FAILURE);
+				}
 			}
 			break;
 		}
