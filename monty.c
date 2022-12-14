@@ -315,6 +315,8 @@ void pstr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
 	
+	line_number = line_number;
+	
 	tmp = *stack;
 	
 	while (tmp != NULL)
