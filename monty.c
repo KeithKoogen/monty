@@ -115,11 +115,10 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	
-	while ((nread = getline(&line, &len, fp)) != -1) {
-		strcpy(buffer, line);
-           printf("Retrieved line number %s:\n", buffer);
- 
-       }
+	while(fgets(buffer,sizeof(buffer),fp)!= NULL) /* read a line from a file */ {
+      printf("%s",buffer); //print the file contents on stdout.
+    }
+
 	
 
 
