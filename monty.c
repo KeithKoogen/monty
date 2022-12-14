@@ -27,6 +27,7 @@ void push(stack_t **stack, unsigned int line_number)
 	
 
 	tmp = *stack;
+	line_number = line_number;
 	
 	if (tmp == NULL)
 	{
