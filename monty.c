@@ -204,6 +204,7 @@ int main(int argc, char *argv[])
 		function_selector(tmp, stack, line_number);
 		free(tmp);
       		++line_number;
+		memset(buffer, 0, sizeof(buffer));
     	}
 
 	
