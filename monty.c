@@ -300,6 +300,7 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 		{"sub", sub},
 		{"mul", mul},
 		{"mod", mod},
+		{"pchar", pchar},
 		{NULL, NULL}
 	};
 	
