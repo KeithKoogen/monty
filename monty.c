@@ -95,6 +95,9 @@ int main(int argc, char *argv[])
 	char *token, tmp[1024];
 	unsigned int line_number;
 	stack_t **stack;
+	ssize_t nread;
+	char *line = NULL;
+        size_t len = 0;
 	
 	*stack = NULL;
 	line_number = 1;
@@ -112,13 +115,12 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	memset(buffer, 0, sizeof(buffer));
-	fread(buffer, sizeof(buffer), 1, fp);
+	while ((nread = getline(&line, &len, fp)) != -1) {
+           printf("Retrieved line number %d:\n", line);
+ 
+       }
 	
 
-	printf("%s\n", buffer);
-	strcpy(tmp, buffer);
-	printf("%s\n", tmp);
-	function_runner(tmp, stack);
 
 
 
