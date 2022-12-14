@@ -21,6 +21,23 @@ int numbers_only(char *str)
 	return (j);
 }
 
+void pint(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp;
+	
+	tmp = *stack;
+	
+	if (tmp != NULL)
+	{
+		printf("%d\n", tmp->n);
+	}
+	else
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty", line_number);
+		exit(EXIT_FAILURE);
+	}
+}
+
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node, *tmp;
@@ -79,6 +96,7 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 	
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}
 	};
 	
