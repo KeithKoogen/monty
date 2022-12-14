@@ -50,7 +50,8 @@ void pall(stack_t **stack, unsigned int line_number)
 void function_selector(char *str, stack_t **stack, unsigned int line_number)
 {
 	char *token;
-	int i, n;
+	int i;
+	int n;
 	stack_t *tmp;
 	instruction_t functions[] = {
 	
