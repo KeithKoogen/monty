@@ -166,6 +166,30 @@ void add(stack_t **stack, unsigned int line_number)
 	}
 }
 
+void mul(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp, *tmp2;
+	int total;
+	
+	tmp = *stack;
+	tmp2 = tmp->next;
+	if (tmp2 != NULL)
+	{
+		total = tmp->n * tmp2->n;
+		tmp2->n = total;
+		tmp2->prev = NULL;
+		free(tmp);
+		*stack = tmp2;
+	}
+	else
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
+		free_stack(*stack);
+		free(stack);
+		exit(EXIT_FAILURE);
+	}
+}
+
 void sub(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp, *tmp2;
@@ -241,6 +265,7 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 		{"nop", NULL},
 		{"div", divide},
 		{"sub", sub},
+		{"mul", mul},
 		{NULL, NULL}
 	};
 	
