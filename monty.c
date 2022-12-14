@@ -8,6 +8,11 @@ char buffer[1024];
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node, *tmp;
+	int n;
+	char *token;
+	
+	token = (NULL, " ");
+	n = atoi(token);
 	
 	tmp = *stack;
 	
@@ -16,6 +21,7 @@ void push(stack_t **stack, unsigned int line_number)
 		new_node = malloc(sizeof(stack_t));
 		new_node->next = NULL;
 		new_node->prev = NULL;
+		new_node->n = n;
 		*stack = new_node;
 	}
 	else
@@ -23,6 +29,7 @@ void push(stack_t **stack, unsigned int line_number)
 		new_node = malloc(sizeof(stack_t));
 		new_node->next = *stack;
 		new_node->prev = NULL;
+		new_node->n = n;
 		tmp->prev = new_node;
 		*stack = new_node;
 	}
