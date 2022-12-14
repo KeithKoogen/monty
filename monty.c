@@ -100,7 +100,7 @@ int main(int argc, char *argv[])
 	
 	while(fgets(buffer,sizeof(buffer),fp)!= NULL)
 	{
-		tmp = malloc(sizeof(char) * (strlen(buffer) - 1));
+		tmp = malloc(sizeof(char) * (strlen(buffer) - 2));
 		strcpy(tmp, buffer);
 		function_selector(tmp, stack, line_number);
 		free(tmp);
