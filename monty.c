@@ -42,7 +42,7 @@ void pint(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty", line_number);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 			free_stack(*stack);
 			free(stack);
 		exit(EXIT_FAILURE);
@@ -113,7 +113,7 @@ void pop(stack_t **stack, unsigned int line_number)
 	{
 		free_stack(*stack);
 		free(stack);
-		fprintf(stderr, "L%d: can't pop an empty stack", line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	
@@ -135,7 +135,7 @@ void swap(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short", line_number);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
 		free_stack(*stack);
 		free(stack);
 		exit(EXIT_FAILURE);
@@ -159,7 +159,41 @@ void add(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		fprintf(stderr, "L%d: can't add, stack too short", line_number);
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		free_stack(*stack);
+		free(stack);
+		exit(EXIT_FAILURE);
+	}
+}
+
+void div(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp, *tmp2;
+	int total;
+	
+	tmp = *stack;
+	tmp2 = tmp->next;
+	if (tmp2 != NULL)
+	{
+		if (tmp->n != 0)
+		{
+			total = tmp2->n / tmp->n;
+			tmp2->n = total;
+			tmp2->prev = NULL;
+			free(tmp);
+			*stack = tmp2;
+		}
+		else
+		{
+			fprintf(stderr, "L%d: division by zero\n", line_number);
+			free_stack(*stack);
+			free(stack);
+			exit(EXIT_FAILURE);
+		}
+	}
+	else
+	{
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
 		free_stack(*stack);
 		free(stack);
 		exit(EXIT_FAILURE);
