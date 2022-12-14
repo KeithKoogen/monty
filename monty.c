@@ -19,7 +19,7 @@ void push(stack_t **stack, unsigned int line_number)
 		new_node = malloc(sizeof(stack_t));
 		new_node->next = NULL;
 		new_node->prev = NULL;
-		new_node->n = n;
+
 		*stack = new_node;
 	}
 	else
@@ -27,7 +27,7 @@ void push(stack_t **stack, unsigned int line_number)
 		new_node = malloc(sizeof(stack_t));
 		new_node->next = *stack;
 		new_node->prev = NULL;
-		new_node->n = n;
+
 		tmp->prev = new_node;
 		*stack = new_node;
 	}
@@ -50,7 +50,7 @@ void pall(stack_t **stack, unsigned int line_number)
 void function_selector(char *str, stack_t **stack, unsigned int line_number)
 {
 	char *token;
-	int i;
+	int i, n;
 	stack_t *tmp;
 	instruction_t functions[] = {
 	
@@ -70,7 +70,6 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 			functions[i].f(stack, line_number);
 			if (strcmp(token, "push") == 0)
 			{
-				int n;
 				token = strtok(NULL, " ");
 				n = atoi(token);
 				tmp = *stack;
