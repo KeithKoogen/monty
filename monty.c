@@ -240,6 +240,7 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 		{"add", add},
 		{"nop", NULL},
 		{"div", divide},
+		{"sub", sub},
 		{NULL, NULL}
 	};
 	
