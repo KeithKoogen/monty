@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
 		i = 0;
 		while (buffer[i] != '\n')
 			++i;
-		tmp = malloc(sizeof(char) * i);
+		tmp = malloc(sizeof(char) * (i - 1));
 		strcpy(tmp, buffer);
 		function_selector(tmp, stack, line_number);
 		free(tmp);
