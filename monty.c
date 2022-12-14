@@ -113,6 +113,27 @@ void pop(stack_t **stack, unsigned int line_number)
 	
 }
 
+void swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp, *tmp2;
+	
+	tmp = *stack;
+	tmp2 = tmp->next;
+	if (tmp2 != NULL)
+	{
+		tmp->next = tmp2->next;
+		tmp->prev = tmp2;
+		tmp2->next = tmp;
+		tmp2->prev = NULL;
+		*stack = tmp2;
+	}
+	else
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short", line_number);
+		exit(EXIT_FAILURE);
+	}
+}
+
 
 void function_selector(char *str, stack_t **stack, unsigned int line_number)
 {
@@ -125,6 +146,7 @@ void function_selector(char *str, stack_t **stack, unsigned int line_number)
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
+		{"swap", swap},
 		{NULL, NULL}
 	};
 	
