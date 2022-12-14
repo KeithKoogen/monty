@@ -359,6 +359,33 @@ void rotl(stack_t **stack, unsigned int line_number)
 	}
 }
 
+void rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp, *tmp2;
+	
+	line_number = line_number;
+	
+	
+	tmp = *stack;
+	tmp2 = *stack;
+	if (tmp != NULL && tmp2 != NULL)
+	{
+	
+		while (tmp != NULL)
+		{
+
+			tmp = tmp->next;
+
+		}
+		tmp->prev->next = NULL;
+		tmp2->prev = tmp;
+		tmp->next = tmp2;
+		tmp->prev = NULL;
+		
+		*stack = tmp;
+	}
+}
+
 void function_selector(char *str, stack_t **stack, unsigned int line_number)
 {
 	char *token;
